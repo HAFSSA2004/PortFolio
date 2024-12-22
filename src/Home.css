@@ -73,6 +73,45 @@
   transform: scale(1.1);
 }
 
+/* Hello FS203 Text animation */
+.hello-fs203 {
+  text-align: center;
+  animation: slideInText 3s ease-out 1s forwards;
+  transform: translateY(50px);  /* Start position */
+  position: relative;
+}
+
+.hello-text {
+  font-size: 36px;
+  font-weight: bold;
+  color: #feb47b;
+  opacity: 0;
+}
+
+/* Beautiful and Unique Animation for Hello FS203 */
+@keyframes slideInText {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) rotate(10deg); /* Start with rotation */
+  }
+  25% {
+    opacity: 0.3;
+    transform: translateY(10px) rotate(-5deg); /* Add rotation for dynamic effect */
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-10px) rotate(3deg); /* Add slight rotation */
+  }
+  75% {
+    opacity: 0.9;
+    transform: translateY(5px) rotate(-2deg); /* Smooth out the motion */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg); /* End at normal position with no rotation */
+  }
+}
+
 /* Info section container */
 .info-container {
   padding: 50px;
@@ -114,5 +153,128 @@
   .navbar-links {
     flex-direction: column;
     gap: 15px;
+  }
+}
+
+.language-toggle {
+  position: absolute;
+  top: 360px;  /* Adjust as needed */
+  left: 50%;   /* Center horizontally */
+  transform: translateX(-50%);  /* Adjust the position so it's perfectly centered */
+  z-index: 1000;  /* Ensure it's above other elements */
+}
+
+.language-toggle button {
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.language-toggle button:hover {
+  background-color: #ddd;
+}
+
+
+
+
+/* Info section container */
+.info-container {
+  padding: 50px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* General Info Text Style */
+.info-text {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  opacity: 0;
+  transform: translateY(50px);
+  margin-bottom: 20px;  /* Add some spacing between the texts */
+}
+
+/* Animation for Hello Text */
+.hello-text {
+  font-size: 36px;
+  font-weight: 700;
+  color: #feb47b;
+  animation: slideInText 2s ease-out forwards;
+}
+
+@keyframes slideInText {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.8); /* Start with scaling down */
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(0) scale(1.05); /* Zoom in a bit */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* Final position with normal scale */
+  }
+}
+
+/* Animation for Developer Text */
+.developer-text {
+  font-size: 32px;
+  font-weight: 600;
+  color: #ffffff;
+  animation: fadeInFromLeft 2s ease-out forwards;
+}
+
+@keyframes fadeInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation for Specialization Text */
+.specialization-text {
+  font-size: 28px;
+  font-weight: 500;
+  color: #ffffff;
+  animation: slideUpAndFadeIn 2s ease-out forwards;
+}
+
+@keyframes slideUpAndFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .info-container {
+    padding: 30px;
+  }
+
+  .info-text {
+    font-size: 24px;
   }
 }

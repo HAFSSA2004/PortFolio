@@ -1,15 +1,16 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-//import Home from "./Home";
+// import Home from "./Home";
 import TodoApp from "./Todolist/TodoApp";
 import Calculator from "./Calculator/Calculator";
 import Api from "./Api/Api";
 import Profils from "./CartProfil/Profils";
-//import { ThemeProvider,useTheme } from "./Theme/Theme";
+// import { ThemeProvider, useTheme } from "./Theme/Theme";
 import './App.css'; // Assuming all the CSS files are imported here
 import Navbar from "./Home"; // Import the Navbar component
+import { LanguageProvider } from './LanguageContext';  // Import the LanguageProvider
 
-//import Test from "./Test/Test";
+// import Test from "./Test/Test";
 
 function App() {
   const location = useLocation();
@@ -33,20 +34,21 @@ function App() {
   }, [location]);
 
   return (
-    <div>
-      {/* Navbar is now outside the Routes component and will appear on all pages */}
-      <Navbar />
-      
-      {/* Main routing logic */}
-      <Routes>
-         {/*   <Route path="/" element={<Home />} /> */}
-    
-        <Route path="/TodoApp" element={<TodoApp />} />
-        <Route path="/Calculator" element={<Calculator />} />
-        <Route path="/api" element={<Api />} />
-        <Route path="/cart" element={<Profils />} />
-      </Routes>
-    </div>
+    <LanguageProvider> {/* Wrap the app with LanguageProvider */}
+      <div>
+        {/* Navbar is now outside the Routes component and will appear on all pages */}
+        <Navbar />
+        
+        {/* Main routing logic */}
+        <Routes>
+          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/TodoApp" element={<TodoApp />} />
+          <Route path="/Calculator" element={<Calculator />} />
+          <Route path="/api" element={<Api />} />
+          <Route path="/cart" element={<Profils />} />
+        </Routes>
+      </div>
+    </LanguageProvider>
   );
 }
 
