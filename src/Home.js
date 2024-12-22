@@ -42,6 +42,17 @@ function Navbar() {
 
   const { hello, developer, specialization } = getLanguageText(); // Get the translated text
 
+  // Toggle language function
+  const handleLanguageToggle = () => {
+    if (language === 'en') {
+      toggleLanguage('fr');  // Change to French if currently English
+    } else if (language === 'fr') {
+      toggleLanguage('es');  // Change to Spanish if currently French
+    } else {
+      toggleLanguage('en');  // Change to English if currently Spanish
+    }
+  };
+
   return (
     <div className={isHomePage ? 'background' : ''}>
       {isHomePage && (
@@ -52,8 +63,6 @@ function Navbar() {
           <h2>My Project</h2>
         </div>
 
-       
-        
         <div className="navbar-links">
           {showLinks && (
             <>
@@ -69,22 +78,24 @@ function Navbar() {
           <Test />
         </div>
       </div>
-      
-      {isHomePage && (
-  <div className="info-container">
-    <h2 className="hello-text info-text">{hello}</h2> {/* Apply specific class for animation */}
-    <h2 className="developer-text info-text">{developer}</h2> {/* Apply specific class for animation */}
-    <p className="specialization-text info-text">{specialization}</p> {/* Apply specific class for animation */}
-  </div>
-)}
 
-      
-      {/* Language toggle button, visible only on the home page */}
       {isHomePage && (
-        <div className="language-toggle">
-          <button onClick={toggleLanguage}>
-            {language === 'en' ? 'Français' : language === 'fr' ? 'Español' : 'English'}
-          </button>
+        <div className="info-container">
+          <h2 className="hello-text info-text">{hello}</h2>
+          <h2 className="developer-text info-text">{developer}</h2>
+          <p className="specialization-text info-text">{specialization}</p>
+        </div>
+      )}
+
+      {/* Language toggle image */}
+      {isHomePage && (
+        <div className="language-toggle" onClick={handleLanguageToggle} style={{ cursor: 'pointer' }}>
+          {/* Dynamically change the flag based on the language */}
+          <img
+            src={language === 'fr' ? 'france.png' : language === 'es' ? 'spain.png' : 'eng.png'}
+            alt="Language Toggle"
+            style={{ width: '50px', height: 'auto' }}
+          />
         </div>
       )}
     </div>

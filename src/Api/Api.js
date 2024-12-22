@@ -53,7 +53,6 @@ export default function Api() {
     <div className="api-body vh-100 d-flex justify-content-center align-items-center text-light">
       <div className="slider-container">
         {/* Title */}
-        <h1 className="title">Discover the World with Flags</h1>
 
         {/* Search Bar */}
         <div className="search-bar mb-4">

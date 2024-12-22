@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './style.css';
 
-export default function FormulaireProfile({ AjouterP }) {
-  const [nom, setNom] = useState('');
+export default function ProfileForm({ addProfile }) {
+  const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [profession, setProfession] = useState('');
   const [image, setImage] = useState(null);
@@ -11,14 +11,14 @@ export default function FormulaireProfile({ AjouterP }) {
     event.preventDefault();
 
     if (!image) {
-      alert('Veuillez télécharger une image.');
+      alert('Please upload an image.');
       return;
     }
 
-    const newP = { nom, age, profession, image: URL.createObjectURL(image) };
-    AjouterP(newP);
+    const newProfile = { name, age, profession, image: URL.createObjectURL(image) };
+    addProfile(newProfile);
 
-    setNom('');
+    setName('');
     setAge('');
     setProfession('');
     setImage(null);
@@ -32,40 +32,42 @@ export default function FormulaireProfile({ AjouterP }) {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center" style={{ height: '60vh' }}>
+    <div className="d-flex flex-column justify-content-center align-items-center" style={{ height: '80vh' }}>
+      <h1 className="profile-title text-center">Profile Form</h1> {/* Title Added */}
+      
       <form onSubmit={handleSubmit} className="p-4 bg-white rounded shadow-lg" style={{ width: '100%', maxWidth: '500px' }}>
         <div className="mb-3">
-          <label className="form-label">Nom :</label>
+          <label className="form-label">Name:</label>
           <input
             type="text"
             className="form-control"
-            onChange={(e) => setNom(e.target.value)}
-            value={nom}
-            placeholder="Entrez le nom"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            placeholder="Enter the name"
           />
         </div>
         <div className="mb-3">
-          <label className="form-label">Âge :</label>
+          <label className="form-label">Age:</label>
           <input
             type="number"
             className="form-control"
             onChange={(e) => setAge(e.target.value)}
             value={age}
-            placeholder="Entrez l'âge"
+            placeholder="Enter the age"
           />
         </div>
         <div className="mb-3">
-          <label className="form-label">Profession :</label>
+          <label className="form-label">Profession:</label>
           <input
             type="text"
             className="form-control"
             onChange={(e) => setProfession(e.target.value)}
             value={profession}
-            placeholder="Entrez la profession"
+            placeholder="Enter the profession"
           />
         </div>
         <div className="mb-3">
-          <label className="form-label">Image :</label>
+          <label className="form-label">Image:</label>
           <input
             type="file"
             className="form-control"
@@ -73,7 +75,7 @@ export default function FormulaireProfile({ AjouterP }) {
           />
         </div>
         <div className="d-grid p-0">
-          <input type="submit" style={{backgroundColor:'blue',border:'none',padding:'5px',color:'white',borderRadius:'5px',fontSize:'20px',fontFamily:'sans-serif'}} value='  Add Profil' name="" id="" />
+          <input type="submit" style={{backgroundColor:'blue', border:'none', padding:'5px', color:'white', borderRadius:'5px', fontSize:'20px', fontFamily:'sans-serif'}} value='Add Profile' />
         </div>
       </form>
     </div>

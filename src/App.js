@@ -8,7 +8,7 @@ import Profils from "./CartProfil/Profils";
 // import { ThemeProvider, useTheme } from "./Theme/Theme";
 import './App.css'; // Assuming all the CSS files are imported here
 import Navbar from "./Home"; // Import the Navbar component
-import { LanguageProvider } from './LanguageContext';  // Import the LanguageProvider
+import { LanguageProvider } from './LanguageContext';  // Correctly import the LanguageProvider
 
 // import Test from "./Test/Test";
 
