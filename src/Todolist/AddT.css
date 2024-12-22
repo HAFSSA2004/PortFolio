@@ -1,0 +1,266 @@
+body.todo-body{
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f6d8af, #f9f1e0);
+  margin: 10;
+  padding: 10;
+}
+ 
+ 
+ .App {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  /* Header Section */
+  header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 10px;
+  }
+
+  header div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  header img {
+    width: 110px;
+    height: 110px;
+    margin-right: 10px;
+    border-radius: 50%;
+    box-shadow: 0 6px 15px rgba(52, 51, 51, 0.2);
+  }
+
+  header input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+  }
+
+  header input:focus {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Add Task Section */
+  .add-task {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-left: 5px;
+  }
+
+  .add-task input {
+    flex: 1;
+    padding: 6px 10px; /* Smaller padding for more compact size */
+    border: none;
+    border-radius: 6px; /* Slightly smaller border radius */
+    outline: none;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+    transition: all 0.3s ease;
+    font-size: 14px; /* Keep text size normal */
+    height: 45px; /* Reduce height for a slimmer input */
+  }
+  .add-task button {
+  
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+    width: auto; /* Let width adjust based on content */
+    max-width: 150px; /* Max width */
+    min-width: 100px; /* Minimum width */
+    border: none;
+    border-radius: 6px; /* Smaller border radius */
+    cursor: pointer;
+    font-size: 14px; /* Same font size as input */
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Light shadow */
+    transition: all 0.3s ease;
+    height: 43px; /* Reduce height for a slimmer input */
+  }
+
+  .add-task button:hover {
+    background: linear-gradient(135deg, #feb47b, #ff7e5f);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px); /* Slight hover effect */
+  }
+
+  /* Task List */
+  .task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .task-item {
+    padding-left: 10px;
+    padding-right: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: row; /* Default to row */
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .task-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 1;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .task-item input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+    background-color: #f5f5f5;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+
+  .task-item button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #c0392b;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+
+  .task-item button:hover {
+    color: #e74c3c;
+    transform: scale(1.1);
+  }
+
+  .task-item .edit-btn {
+    color: #2980b9;
+  }
+
+  .task-item .edit-btn:hover {
+    color: #3498db;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .App {
+      max-width: 90%;
+      padding: 20px;
+    }
+
+    header {
+      gap: 10px;
+    }
+
+    header img {
+      width: 110px; /* Increased logo size */
+      height: 110px;
+    }
+
+    .add-task {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .add-task input {
+      padding: 12px 10px; /* Smaller padding for more compact size */
+      
+    }
+
+    .add-task button {
+    
+      max-width: 100%;
+      height: 40px; /* Ensure the submit button takes up the full width */
+  }
+
+    .task-item {
+      flex-direction: column; /* Stack content vertically */
+      align-items: flex-start; /* Align items to the start */
+      padding: 15px;
+      gap: 10px;
+    }
+
+    .task-content {
+      word-wrap: break-word;
+    }
+  }
+
+  @media (max-width: 480px) {
+    header img {
+      width: 110px; /* Further increased logo size */
+      height: 110px;
+    }
+
+    header input {
+      font-size: 0.9rem;
+    }
+
+    .add-task button {
+    
+        max-width: 100%;
+        height: 40px; /* Ensure the submit button takes up the full width */
+    }
+    
+    .task-item {
+      padding: 10px;
+    }
+  }
+
+  .btns {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+  }
+
+  .save-btn {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .save-btn:hover {
+    background: #45a049;
+  }
+
+  .edit-btn, .delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .edit-btn:hover, .delete-btn:hover {
+    color: #007bff;
+  }
+
+  .delete-btn {
+    color: red;
+  }
+  body.todo-body[data-theme='dark'] {
+    background: #333;
+    color: black;
+  }
+  

@@ -1,0 +1,118 @@
+/* General body styling */
+.home-body {
+  font-family: 'Arial', sans-serif;
+  background: #f0f0f0;
+  margin-left: 0;
+}
+
+/* Background image styling */
+.background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 25px 10px;
+  width: 100%;
+  z-index: 1000;
+  border-radius: 10px;
+}
+
+/* Logo styling */
+.navbar-logo h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 36px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Navbar links container */
+.navbar-links {
+  display: flex;
+  gap: 25px;
+}
+
+/* Individual link styling */
+.nav-link {
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  letter-spacing: 1px;
+  border-radius: 5px;
+}
+
+.nav-link:hover {
+  color: #feb47b;
+  transform: scale(1.1);
+}
+
+/* Info section container */
+.info-container {
+  padding: 50px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.info-text {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeIn 2s ease-out 1s forwards;
+}
+
+/* Fade-in animation for info text */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .navbar-logo h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
