@@ -33,7 +33,7 @@ export default function ProfileForm({ addProfile }) {
 
   return (
     <div className="d-flex flex-column justify-content-center align-items-center" style={{ height: '80vh' }}>
-      <h1 className="profile-title text-center">Profile Form</h1> {/* Title Added */}
+      <h1 className="profile-title text-center">List Profils</h1> {/* Title Added */}
       
       <form onSubmit={handleSubmit} className="p-4 bg-white rounded shadow-lg" style={{ width: '100%', maxWidth: '500px' }}>
         <div className="mb-3">

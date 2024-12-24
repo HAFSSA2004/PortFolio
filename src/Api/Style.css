@@ -144,6 +144,7 @@ body[data-theme='dark'] .api-body {
 }
 
 @media (max-width: 480px) {
+    
     .country-card {
         width: 100%;
         margin-bottom: 20px; /* Space between cards */

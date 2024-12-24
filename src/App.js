@@ -1,20 +1,18 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-// import Home from "./Home";
 import TodoApp from "./Todolist/TodoApp";
 import Calculator from "./Calculator/Calculator";
 import Api from "./Api/Api";
 import Profils from "./CartProfil/Profils";
-// import { ThemeProvider, useTheme } from "./Theme/Theme";
+import NotFound from "./NotFound";
 import './App.css'; // Assuming all the CSS files are imported here
 import Navbar from "./Home"; // Import the Navbar component
 import { LanguageProvider } from './LanguageContext';  // Correctly import the LanguageProvider
-
-// import Test from "./Test/Test";
+import Home from "./Home"; // Import Home component
 
 function App() {
   const location = useLocation();
-  
+
   React.useEffect(() => {
     // Remove all possible body classes first
     document.body.classList.remove("home-body", "todo-body", "calculator-body", 'card');
@@ -41,11 +39,14 @@ function App() {
         
         {/* Main routing logic */}
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+        {/*    <Route path="/" element={<Home />} /> */}
           <Route path="/TodoApp" element={<TodoApp />} />
           <Route path="/Calculator" element={<Calculator />} />
           <Route path="/api" element={<Api />} />
           <Route path="/cart" element={<Profils />} />
+          
+          {/*  <Route path="*" element={<NotFound />} /> */}
+        
         </Routes>
       </div>
     </LanguageProvider>
