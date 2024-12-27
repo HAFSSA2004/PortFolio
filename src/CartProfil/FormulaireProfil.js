@@ -35,7 +35,7 @@ export default function ProfileForm({ addProfile }) {
     <div className="d-flex flex-column justify-content-center align-items-center" style={{ height: '80vh' }}>
       <h1 className="profile-title text-center">List Profils</h1> {/* Title Added */}
       
-      <form onSubmit={handleSubmit} className="p-4 bg-white rounded shadow-lg" style={{ width: '100%', maxWidth: '500px' }}>
+      <form onSubmit={handleSubmit} className="form-container p-4 bg-white  shadow-lg" style={{ width: '100%', maxWidth: '500px' }}>
         <div className="mb-3">
           <label className="form-label">Name:</label>
           <input
@@ -75,7 +75,7 @@ export default function ProfileForm({ addProfile }) {
           />
         </div>
         <div className="d-grid p-0">
-          <input type="submit" style={{backgroundColor:'blue', border:'none', padding:'5px', color:'white', borderRadius:'5px', fontSize:'20px', fontFamily:'sans-serif'}} value='Add Profile' />
+          <input type="submit" style={{ backgroundColor: 'blue', border: 'none', padding: '5px', color: 'white', borderRadius: '5px', fontSize: '20px', fontFamily: 'sans-serif' }} value='Add Profile' />
         </div>
       </form>
     </div>

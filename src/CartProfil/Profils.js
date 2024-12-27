@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './style.css';
 import ListeProfils from './ListeProfils';
 import FormulaireProfile from './FormulaireProfil';
-
+import Navbar from "../Home";
 function Profils() {
   const [profils, setProfils] = useState([
     { nom: 'John', age: 25, profession: 'Developer', image: 'p1.png' },
@@ -22,10 +22,13 @@ function Profils() {
   };
 
   return (
-    <div className="container mt-5">
+   <div>
+    <Navbar/>
+     <div className="container mt-5">
       <FormulaireProfile AjouterP={AjouterP} />
       <ListeProfils profils={profils} suprimerP={suprimerP} />
     </div>
+   </div>
   );
 }
 

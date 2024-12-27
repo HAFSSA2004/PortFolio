@@ -1,16 +1,12 @@
-/* General body styling */
-.home-body {
-  font-family: 'Arial', sans-serif;
-  background: #f0f0f0;
-  margin-left: 0;
+html, body {
+  height: 100%; /* Ensure the body takes full height */
+  margin: 0; /* Remove default margin */
 }
 
-/* Background image styling */
 .background {
   position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh; /* Allow the background to grow with content */
+  overflow: auto; /* Allow scrolling if content exceeds viewport */
 }
 
 .background-image {
@@ -20,7 +16,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
+  z-index: -1; /* Keep it behind other content */
 }
 
 /* Navbar styling */
@@ -29,25 +25,22 @@
   justify-content: space-between;
   align-items: center;
   position: sticky;
+  background-color: black;
   top: 0;
-  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 244, 244, 0.3);
   padding: 25px 10px;
   width: 100%;
   z-index: 1000;
-  border-radius: 10px;
 }
 
 /* Logo styling */
-.navbar-logo h2 {
+.navbar-brand {
   font-family: 'Roboto', sans-serif;
   font-size: 36px;
   color: #fff;
- 
   letter-spacing: 3px;
   font-weight: 700;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Navbar links container */
@@ -57,10 +50,10 @@
 }
 
 /* Individual link styling */
-.nav-link {
+.nav-link{
   text-decoration: none;
   font-size: 20px;
-  color: #fff;
+  color: pink;
   font-weight: bold;
   padding: 10px 20px;
   transition: color 0.3s ease, transform 0.3s ease;
@@ -71,70 +64,6 @@
 .nav-link:hover {
   color: #feb47b;
   transform: scale(1.1);
-}
-
-/* Hello FS203 Text animation */
-.hello-fs203 {
-  text-align: center;
-  animation: slideInText 3s ease-out 1s forwards;
-  transform: translateY(50px);  /* Start position */
-  position: relative;
-}
-
-.hello-text {
-  font-size: 36px;
-  font-weight: bold;
-  color: #feb47b;
-  opacity: 0;
-}
-
-/* Beautiful and Unique Animation for Hello FS203 */
-@keyframes slideInText {
-  0% {
-    opacity: 0;
-    transform: translateY(50px) rotate(10deg); /* Start with rotation */
-  }
-  25% {
-    opacity: 0.3;
-    transform: translateY(10px) rotate(-5deg); /* Add rotation for dynamic effect */
-  }
-  50% {
-    opacity: 0.6;
-    transform: translateY(-10px) rotate(3deg); /* Add slight rotation */
-  }
-  75% {
-    opacity: 0.9;
-    transform: translateY(5px) rotate(-2deg); /* Smooth out the motion */
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) rotate(0deg); /* End at normal position with no rotation */
-  }
-}
-
-/* Info section container */
-.info-container {
-  padding: 50px;
-  text-align: center;
-  position: relative;
-  z-index: 10;
-}
-
-.info-text {
-  font-size: 30px;
-  font-weight: bold;
-  color: white;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: fadeIn 2s ease-out 1s forwards;
-}
-
-/* Fade-in animation for info text */
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* Media Query for Smaller Screens */
@@ -156,12 +85,16 @@
   }
 }
 
-.language-toggle {
-  position: absolute;
-  top: 360px;  /* Adjust as needed */
-  left: 50%;   /* Center horizontally */
-  transform: translateX(-50%);  /* Adjust the position so it's perfectly centered */
-  z-index: 1000;  /* Ensure it's above other elements */
+
+.language-toggle{
+  display: flex;
+  justify-content: end;
+  margin-top:60px;
+margin-left: 100px;
+}
+.language-toggle img {
+  border-radius: 50%;
+ 
 }
 
 .language-toggle button {
@@ -170,7 +103,8 @@
   cursor: pointer;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  margin-bottom: 100px;
+  
   transition: background-color 0.3s ease;
 }
 
@@ -269,51 +203,172 @@
 }
 
 /* Media Query for Smaller Screens */
+/* Media Query for Smaller Screens */
 @media (max-width: 768px) {
-  .info-container {
-    padding: 30px;
+  .navbar {
+    position: relative; /* Ensure the navbar is positioned correctly */
+    padding: 20px;
   }
 
-  .info-text {
-    font-size: 24px;
+  /* Position navbar toggler and language toggle in the same line */
+  .navbar-toggler-icon {
+    position: absolute;
+    top: 13px;
+    right: 10px;
+    z-index: 1001;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 20px;
+  }
+
+  .theme-switch {
+    position: absolute;
+    top: 15px;  /* Adjust vertical position */
+    right: 80px; /* Place it to the left of the navbar toggler */
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  /* Adjust theme switch image size */
+  .theme-switch img {
+    width: 40px;
+    height: auto;
+  }
+
+  /* Adjust the language toggle image to be next to the theme switch */
+  .language-toggle {
+    position: absolute;
+    padding-left: 339px;
+    top: 45px;
+     /* Adjust to position to the left of the theme switch */
+    z-index: 999;
+   
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    cursor: pointer;
+    
+  }
+
+  .language-toggle img {
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+
+  .language-toggle img:hover {
+    transform: scale(1.1);  /* Slight zoom effect */
   }
 }
 
-/* Language Toggle Styling */
-.language-toggle {
-  display: flex;
-  justify-content: flex-end;  /* Aligns the image to the right */
-  align-items: center;
-  cursor: pointer;
-  position: absolute; /* Position it absolutely within its container */
-  top: 160px; /* Adjust this value to move the toggle upward */
-  left: 90%; /* Center it horizontally */
-  transform: translateX(-50%); /* Offset it by 50% to center exactly */
+
+
+
+
+
+.card {
+  background-color: rgba(254, 254, 254, 0.2); /* Semi-transparent white background */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  backdrop-filter: blur(25px); /* Glassy effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+  opacity: 0; /* Start hidden for animation */
+  animation: rollInFromLeft 0.5s ease-out forwards;
+  border-radius: 15px !important; /* Ensure no rounded corners */
+  overflow: hidden; /* Prevent clipping or rounding of child elements */
 }
 
-/* Image styling */
-.language-toggle img {
-  width: 50px;
-  height: auto;
-  border-radius: 50%; /* Make the image round */
-  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+.card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0 !important; /* Ensure no radius on the image */
 }
 
-.language-toggle img:hover {
-  transform: scale(1.1); /* Slight scale effect on hover */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+  align-items: stretch;
+  border-radius: 0 !important; /* No radius for the container */
+  overflow: hidden; /* Prevent any clipping of the cards */
 }
 
-/* Button styling */
-.language-toggle button {
+.card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.card:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+/* Add more nth-child selectors if you have more cards, increasing the delay */
+
+.card:hover {
+  transform: translateY(-10px); /* Slight movement for hover effect */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+.card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin: 15px 0;
+  color: #333;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #666;
+  margin: 10px 15px;
+}
+
+.card .btn {
+  display: inline-block;
+  margin: 15px;
   padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
   border-radius: 5px;
+  text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
-.language-toggle button:hover {
-  background-color: #ddd;
+.card .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Animation for rolling effect */
+@keyframes rollInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px) rotate(-20deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(10px) rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
 }

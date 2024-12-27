@@ -1,12 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './Style.css';
-
+import Navbar from "../Home";
 export default function Api() {
   const [countries, setCountries] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
-
   useEffect(() => {
     // Fetch countries data
     axios
@@ -50,10 +49,11 @@ export default function Api() {
   console.log("Filtered Countries:", filteredCountries);
 
   return (
-    <div className="api-body vh-100 d-flex justify-content-center align-items-center text-light">
+   <div>
+    <Navbar/>
+    <div className="api-body   ">
       <div className="slider-container">
         {/* Title */}
-
         {/* Search Bar */}
         <div className="search-bar mb-4">
           <input
@@ -69,7 +69,7 @@ export default function Api() {
         </div>
 
         {/* Card Grid */}
-        <div className="card-grid d-flex justify-content-between flex-wrap">
+        <div className="card-grid d-flex justify-content-center flex-wrap column-sm-6">
           {currentCountries.map((country, index) => (
             <div key={index} className="country-card p-3">
               <img
@@ -86,7 +86,7 @@ export default function Api() {
                 <p><strong>Region:</strong> {country.region}</p>
                 <p><strong>Capital:</strong> {country.capital ? country.capital[0] : 'N/A'}</p>
                 <p><strong>Languages:</strong> {country.languages ? Object.values(country.languages).join(', ') : 'N/A'}</p>
-                <p><strong>Currency:</strong> {country.currencies ? Object.values(country.currencies)[0].name : 'N/A'}</p>
+                
               </div>
             </div>
           ))}
@@ -111,5 +111,6 @@ export default function Api() {
         </div>
       </div>
     </div>
+   </div>
   );
 }

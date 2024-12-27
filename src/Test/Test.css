@@ -1,15 +1,22 @@
 /* The switch container */
+
+
 .switch {
     position: relative;
-    display: inline-block;
     width: 60px;
     height: 34px;
+
 }
 
 .switch input {
     opacity: 0;
-    width: 0;
-    height: 0;
+    width: 60px;
+    height: 34px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2; /* Make sure the input is above the slider */
+   
 }
 
 /* The slider */

@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './Home.css';  
+import './Home.css';
 import Test from './Test/Test';
-import { useLanguage } from './LanguageContext';  // Correctly import the custom hook
+import { useLanguage } from './LanguageContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Navbar() {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
   const [showLinks, setShowLinks] = useState(false);
-
-  const { language, toggleLanguage } = useLanguage();  // Get language and toggle function
+  const { language, toggleLanguage } = useLanguage();
 
   useEffect(() => {
-    if (isHomePage) {
-      setShowLinks(true);
-    }
-  }, [isHomePage]);
+    setShowLinks(false);
+  }, [location.pathname]);
 
   const getLanguageText = () => {
     switch (language) {
@@ -40,44 +38,73 @@ function Navbar() {
     }
   };
 
-  const { hello, developer, specialization } = getLanguageText(); // Get the translated text
+  const { hello, developer, specialization } = getLanguageText();
 
-  // Toggle language function
   const handleLanguageToggle = () => {
     if (language === 'en') {
-      toggleLanguage('fr');  // Change to French if currently English
+      toggleLanguage('fr');
     } else if (language === 'fr') {
-      toggleLanguage('es');  // Change to Spanish if currently French
+      toggleLanguage('es');
     } else {
-      toggleLanguage('en');  // Change to English if currently Spanish
+      toggleLanguage('en');
     }
   };
 
   return (
     <div className={isHomePage ? 'background' : ''}>
-      {isHomePage && (
-        <img className="background-image" src="land.jpeg" alt="Background" />
-      )}
-      <div className="navbar">
-        <div className="navbar-logo">
-          <h2>My Project</h2>
-        </div>
+      {isHomePage && <img className="background-image" src="bg5.jpg" alt="Background" />}
 
-        <div className="navbar-links">
-          {showLinks && (
-            <>
-              <Link to='/' className="nav-link">Home</Link>
-              <Link to='/TodoApp' className="nav-link">ToDo List</Link>
-              <Link to='/calculator' className="nav-link">Calculator</Link>
-              <Link to='/api' className="nav-link">Api</Link>
-              <Link to='/cart' className="nav-link">Card Profil</Link>
-            </>
-          )}
+      <nav className="navbar navbar-expand-lg">
+        <div className="container-fluid">
+          <Link to="/" className="navbar-brand text-light">My Project</Link>
+          <button 
+            className="navbar-toggler" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" 
+            aria-expanded={showLinks ? 'true' : 'false'}
+            aria-label="Toggle navigation"
+            onClick={() => setShowLinks(!showLinks)}
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+
+          <div className={`collapse navbar-collapse ${showLinks ? 'show' : ''}`} id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link to="/" className="nav-link text-light">Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/TodoApp" className="nav-link text-light">ToDo List</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/calculator" className="nav-link text-light">Calculator</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/api" className="nav-link text-light">Api</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/cart" className="nav-link text-light">Card Profil</Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="theme-switch">
+            <Test />
+          </div>
         </div>
-        <div className="theme-switch">
-          <Test />
+      </nav>
+
+      {isHomePage && (
+        <div className="language-toggle" onClick={handleLanguageToggle} style={{ cursor: 'pointer' }}>
+          <img
+            src={language === 'fr' ? 'france.png' : language === 'es' ? 'spain.png' : 'eng.png'}
+            alt="Language Toggle"
+            style={{ width: '50px', height: 'auto' }}
+          />
         </div>
-      </div>
+      )}
 
       {isHomePage && (
         <div className="info-container">
@@ -87,15 +114,34 @@ function Navbar() {
         </div>
       )}
 
-      {/* Language toggle image */}
+      {/* Cards Section */}
       {isHomePage && (
-        <div className="language-toggle" onClick={handleLanguageToggle} style={{ cursor: 'pointer' }}>
-          {/* Dynamically change the flag based on the language */}
-          <img
-            src={language === 'fr' ? 'france.png' : language === 'es' ? 'spain.png' : 'eng.png'}
-            alt="Language Toggle"
-            style={{ width: '50px', height: 'auto' }}
-          />
+        <div className="cards-container">
+          <div className="card">
+          <Link to="/TodoApp">  <img src="todp.png" alt="ToDo List" className="card-img" /></Link>
+            <h3>ToDo List</h3>
+            <p>Manage your tasks effectively with our ToDo List app.</p>
+           
+          </div>
+          <div className="card">
+          <Link to="/calculator"><img src="calc.png" alt="Calculator" className="card-img" /></Link>
+          
+            <h3>Calculator</h3>
+            <p>Perform calculations easily with our smart calculator.</p>
+          
+          </div>
+          <div className="card">
+          <Link to="/api">  <img src="api.png" alt="API" className="card-img" /></Link>
+          
+            <h3>API Data</h3>
+            <p>Explore APIs and fetch dynamic data effortlessly.</p>
+           
+          </div>
+          <div className="card">
+          <Link to="/cart" ><img src="profile.jpg" alt="Profile" className="card-img" /></Link>
+            <h3>Profile</h3>
+            <p>View and manage user profiles with our card feature.</p>
+          </div>
         </div>
       )}
     </div>

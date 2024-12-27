@@ -2,19 +2,17 @@
 .api-body {
     background: linear-gradient(135deg, #56CCF2, #2F80ED); /* Soft blue gradient */
     color: #fff; /* White text */
-    min-height: 120vh;
+    min-height: 80vh;
     display: flex;
-    justify-content: flex-start; /* Align items to the top */
-    align-items: flex-start; /* Ensure content is aligned at the top */
+    justify-content: center; /* Align items to the top */
+    align-items: center; /* Ensure content is aligned at the top */
     flex-direction: column;
-    position: relative; /* Ensure positioning context for the search bar */
 }
 
 body[data-theme='dark'] .api-body {
     background: #333; /* Dark background for dark theme */
     color: #fff;
 }
-
 .title {
     text-align: center;
     font-size: 3rem;
@@ -26,7 +24,7 @@ body[data-theme='dark'] .api-body {
 /* Position the search bar at the top right */
 .search-bar {
     position: absolute;
-    top: 20px; /* Position it 20px from the top */
+    top: 90px; /* Position it 20px from the top */
     right: 20px; /* Position it 20px from the right */
     width: 100%;
     max-width: 400px; /* Max width for the search bar */
@@ -133,24 +131,3 @@ body[data-theme='dark'] .api-body {
 }
 
 /* Media Queries for responsiveness */
-@media (max-width: 768px) {
-    .country-card {
-        width: 45%; /* Adjust width on smaller screens */
-        padding-bottom: 50px; /* Reduce bottom padding on smaller screens */
-    }
-    .card-grid {
-        margin-top: 140px; /* Add more margin to ensure proper spacing */
-    }
-}
-
-@media (max-width: 480px) {
-    
-    .country-card {
-        width: 100%;
-        margin-bottom: 20px; /* Space between cards */
-        padding-bottom: 50px; /* Adjust bottom padding for mobile */
-    }
-    .card-grid {
-        margin-top: 160px; /* Add more margin for mobile */
-    }
-}

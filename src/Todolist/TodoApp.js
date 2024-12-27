@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import TaskList from "./TaskList";
 import AddTask from "./AddTask";
+import Navbar from "../Home";
 import './AddT.css'; // Ensure the correct path to the CSS file
 function TodoApp() {
   const [tasks, setTasks] = useState([]);
@@ -50,6 +51,8 @@ function TodoApp() {
   );
 
   return (
+    <div>
+          <Navbar />
     <div className="App">
     
       {/* Navbar placed at the top */}
@@ -73,6 +76,7 @@ function TodoApp() {
         onUpdate={updateTask} 
         onDelete={deleteTask} 
       />
+    </div>
     </div>
   );
 }

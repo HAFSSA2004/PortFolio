@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { evaluate } from "mathjs"; // Import mathjs evaluate function
 import "./Calcul.css";
+import Navbar from "../Home";
 
 function Calculator() {
   const [value, setValue] = useState("");
@@ -22,6 +23,9 @@ function Calculator() {
   };
 
   return (
+  <div>
+    <Navbar/>
+
     <div className="calculator-body">
         <div className="calculator">
       <div className="display">{value || "0"}</div>
@@ -59,6 +63,7 @@ function Calculator() {
 
         <button className="equal" onClick={handleEqual}> = </button>
       </div>
+    </div>
     </div>
     </div>
   );
