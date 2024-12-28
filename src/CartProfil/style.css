@@ -174,3 +174,40 @@ body[data-theme='dark'] .form-container button:hover {
   }
 
 
+
+
+  /* Add media queries for responsive design */
+@media (max-width: 768px) {
+  .cards-containers {
+    gap: 10px; /* Reduce gap on smaller screens */
+  }
+
+  /* Adjust button width and font size on smaller screens */
+  .card .btn {
+    width: 100%; /* Make button take full width on small screens */
+    font-size: 14px; /* Reduce font size */
+    padding: 8px; /* Adjust padding */
+  }
+
+  .card .btn-primary {
+    padding: 5px 0; /* Adjust padding specifically for "Show Details" */
+  }
+}
+
+@media (max-width: 576px) {
+  /* Adjust the container for very small screens */
+  .cards-containers {
+    flex-direction: column; /* Stack cards vertically */
+    gap: 15px; /* Space between cards */
+    
+  }
+  .card{
+    width: 300px;
+  }
+
+  .btn.btn-primary {
+    width: 100px; /* Ensure buttons take full width */
+    font-size: 12px; /* Further reduce font size */
+    padding: 6px; /* Adjust padding */
+  }
+}
