@@ -129,5 +129,14 @@ body[data-theme='dark'] .api-body {
     gap: 20px;
     margin-top: 20px;
 }
-
 /* Media Queries for responsiveness */
+@media (max-width: 480px) {
+    .search-bar {
+        position: relative; /* Ensure it is positioned correctly */
+        top: 2
+        10px; /* Adjust top position for better spacing */
+        margin: 0 auto; /* Center the search bar horizontally */
+        margin-left: 30px;
+        max-width: 90%; /* Make the search bar responsive */
+    }
+}

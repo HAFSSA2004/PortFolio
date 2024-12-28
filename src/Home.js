@@ -124,21 +124,19 @@ function Navbar() {
           </div>
           <div className="cards">
           <Link to="/calculator"><img src="calc.png" alt="Calculator" className="card-img" /></Link>
-          
             <h3>Calculator</h3>
             <p>Perform calculations easily with our smart calculator.</p>
-          
           </div>
-          <div className="cards">
-          <Link to="/api">  <img src="api.png" alt="API" className="card-img" /></Link>
-          
-            <h3>API Flags</h3>
-            <p>This API allows you to easily fetch dynamic data related to world flags.</p>
-          </div>
+         
           <div className="cards">
           <Link to="/cart" ><img src="card.png" alt="Profile" className="card-img" /></Link>
             <h3 >Profile</h3>
             <p>View and manage user profiles with our card feature.</p>
+          </div>
+          <div className="cards" >
+          <Link to="/api">  <img src="a.png" alt="API" className="card-img" /></Link>
+            <h3>API Flags</h3>
+            <p>Discover world flags easily with our API Flags service.</p>
           </div>
         </div>
       )}
