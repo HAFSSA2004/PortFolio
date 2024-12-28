@@ -121,7 +121,6 @@ function Navbar() {
           <Link to="/TodoApp">  <img src="todp.png" alt="ToDo List" className="card-img" /></Link>
             <h3>ToDo List</h3>
             <p>Manage your tasks effectively with our ToDo List app.</p>
-           
           </div>
           <div className="cards">
           <Link to="/calculator"><img src="calc.png" alt="Calculator" className="card-img" /></Link>
@@ -133,8 +132,8 @@ function Navbar() {
           <div className="cards">
           <Link to="/api">  <img src="api.png" alt="API" className="card-img" /></Link>
           
-            <h3>API Data</h3>
-            <p>Explore APIs and fetch dynamic data effortlessly.</p>
+            <h3>API Flags</h3>
+            <p>This API allows you to easily fetch dynamic data related to world flags.</p>
           </div>
           <div className="cards">
           <Link to="/cart" ><img src="card.png" alt="Profile" className="card-img" /></Link>
