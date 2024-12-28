@@ -2,13 +2,11 @@ html, body {
   height: 100%; /* Ensure the body takes full height */
   margin: 0; /* Remove default margin */
 }
-
 .background {
   position: relative;
   min-height: 100vh; /* Allow the background to grow with content */
   overflow: auto; /* Allow scrolling if content exceeds viewport */
 }
-
 .background-image {
   position: absolute;
   top: 0;
@@ -18,7 +16,6 @@ html, body {
   object-fit: cover;
   z-index: -1; /* Keep it behind other content */
 }
-
 /* Navbar styling */
 .navbar {
   display: flex;
@@ -33,7 +30,6 @@ html, body {
   width: 100%;
   z-index: 1000;
 }
-
 /* Logo styling */
 .navbar-brand {
   font-family: 'Roboto', sans-serif;
@@ -42,13 +38,11 @@ html, body {
   letter-spacing: 3px;
   font-weight: 700;
 }
-
 /* Navbar links container */
 .navbar-links {
   display: flex;
   gap: 25px;
 }
-
 /* Individual link styling */
 .nav-link{
   text-decoration: none;
@@ -60,7 +54,6 @@ html, body {
   letter-spacing: 1px;
   border-radius: 5px;
 }
-
 .nav-link:hover {
   color: #feb47b;
   transform: scale(1.1);
@@ -85,12 +78,11 @@ html, body {
   }
 }
 
-
 .language-toggle{
   display: flex;
   justify-content: end;
   margin-top:60px;
-margin-left: 100px;
+  margin-left: 100px;
 }
 .language-toggle img {
   border-radius: 50%;
@@ -112,97 +104,102 @@ margin-left: 100px;
   background-color: #ddd;
 }
 
-
-
-
-/* Info section container */
+/* General Styles */
 .info-container {
-  padding: 50px;
-  text-align: center;
-  position: relative;
-  z-index: 10;
+  text-align: left; /* Align text to the left */
+  padding: 50px 20px;
+  position: relative; /* Position relative for stacking context */
+  overflow: hidden; /* Hide overflow for animation */
 }
 
-/* General Info Text Style */
-.info-text {
-  font-size: 30px;
-  font-weight: bold;
-  color: white;
+/* Text Styles */
+.hello-text, .developer-text, .specialization-text {
   opacity: 0;
-  transform: translateY(50px);
-  margin-bottom: 20px;  /* Add some spacing between the texts */
+  animation: scratchIn 1.5s ease forwards; /* Scratch-in effect */
+  margin: 0; /* Reset margins */
+  padding: 10px 0; /* Add vertical padding for spacing */
+  color: #ffffff; /* White text for better contrast */
+  position: relative; /* Position relative for stacking context */
+  z-index: 2; /* Place above any potential background */
 }
 
-/* Animation for Hello Text */
+/* Staggered Animation for Text */
 .hello-text {
-  font-size: 36px;
-  font-weight: 700;
-  color: #feb47b;
-  animation: slideInText 2s ease-out forwards;
+  animation-delay: 0.5s; /* Delay for staggered effect */
+  font-size: 2rem; /* Larger font size */
+  font-weight: bold; /* Bold text */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+  margin-top: -70px; /* Move up slightly */
 }
 
-@keyframes slideInText {
-  0% {
-    opacity: 0;
-    transform: translateY(50px) scale(0.8); /* Start with scaling down */
-  }
-  50% {
-    opacity: 0.5;
-    transform: translateY(0) scale(1.05); /* Zoom in a bit */
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1); /* Final position with normal scale */
-  }
-}
-
-/* Animation for Developer Text */
 .developer-text {
-  font-size: 32px;
-  font-weight: 600;
-  color: #ffffff;
-  animation: fadeInFromLeft 2s ease-out forwards;
+  animation-delay: 1s; /* Delay for staggered effect */
+  font-size: 1.5rem; /* Medium font size */
+  font-style: italic; /* Italic text */
+  color: #feb47b; /* Different color for contrast */
+  margin-top: -10px; /* Move up slightly, but with some spacing */
 }
 
-@keyframes fadeInFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  50% {
-    opacity: 0.5;
-    transform: translateX(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Animation for Specialization Text */
 .specialization-text {
-  font-size: 28px;
-  font-weight: 500;
-  color: #ffffff;
-  animation: slideUpAndFadeIn 2s ease-out forwards;
+  animation-delay: 1.5s; /* Delay for staggered effect */
+  font-size: 1.2rem; /* Smaller font size */
+  font-weight: 300; /* Light text */
+  color: #ffffff; /* Keep white for consistency */
+  margin-top: -15px; /* Slight overlap prevention */
 }
 
-@keyframes slideUpAndFadeIn {
+/* Scratch-in Animation */
+@keyframes scratchIn {
   0% {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateX(-100%) translateY(20px); /* Start off-screen to the left and slightly down */
   }
   50% {
-    opacity: 0.7;
-    transform: translateY(10px);
+    opacity: 1;
+    transform: translateX(10%) translateY(5px); /* Slide from left to near-center */
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0) translateY(0); /* Final position */
   }
 }
 
-/* Media Query for Smaller Screens */
+/* Language Toggle Button */
+.language-toggle img {
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  width: 50px; /* Fixed size for consistency */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.language-toggle img:hover {
+  transform: scale(1.1) rotate(5deg); /* Scale and slight rotate on hover */
+  opacity: 1; /* Keep opacity at full */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .info-container {
+    padding: 30px 10px;
+  }
+  
+  .hello-text, .developer-text, .specialization-text {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Media Query for Smaller Screens */
 @media (max-width: 768px) {
   .navbar {
@@ -242,10 +239,9 @@ margin-left: 100px;
   .language-toggle {
     position: absolute;
     padding-left: 339px;
-    top: 45px;
+    top: 30px;
      /* Adjust to position to the left of the theme switch */
     z-index: 999;
-   
     display: flex;
     align-items: end;
     justify-content: end;
@@ -264,111 +260,86 @@ margin-left: 100px;
     transform: scale(1.1);  /* Slight zoom effect */
   }
 }
-
-
-
-
-
-
-.card {
-  background-color: rgba(254, 254, 254, 0.2); /* Semi-transparent white background */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
-  backdrop-filter: blur(25px); /* Glassy effect */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
-  opacity: 0; /* Start hidden for animation */
-  animation: rollInFromLeft 0.5s ease-out forwards;
-  border-radius: 15px !important; /* Ensure no rounded corners */
-  overflow: hidden; /* Prevent clipping or rounding of child elements */
+.cards{
+  background: rgba( 255, 255, 255, 0.05 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 0px );
+  -webkit-backdrop-filter: blur( 0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+animation: rollInFromLeft 0.5s ease-out forwards;
+overflow: hidden; /* Prevent clipping or rounding of child elements */
 }
-
-.card-img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 0 !important; /* Ensure no radius on the image */
-}
-
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  justify-items: center;
-  align-items: stretch;
-  border-radius: 0 !important; /* No radius for the container */
-  overflow: hidden; /* Prevent any clipping of the cards */
-}
-
-.card:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.card:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-.card:nth-child(4) {
-  animation-delay: 0.6s;
-}
-
-/* Add more nth-child selectors if you have more cards, increasing the delay */
-
-.card:hover {
+.cards:hover {
   transform: translateY(-10px); /* Slight movement for hover effect */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
 }
-
+.cards-container {
+  display: flex;
+  gap: 20px; /* Space between the cards */
+  padding: 20px;
+  justify-items: center; /* Center the cards horizontally */
+  align-items: center; /* Stretch cards to fill their grid container */
+  border-radius: 10px; /* Rounded corners for the container */
+  overflow: hidden; /* Prevent clipping of the cards */
+  margin: 0 auto; /* Center the container horizontally */
+}
+/* Add more nth-child selectors if you have more cards, increasing the delay */
 .card-img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
 }
-
-.card h3 {
+.cards h3 {
   font-size: 1.5rem;
-  margin: 15px 0;
-  color: #333;
+  margin: 10px 15px;
+  color: #fff7f7;
 }
-
-.card p {
+.cards p {
   font-size: 1rem;
-  color: #666;
+  color: #fff7f7;
   margin: 10px 15px;
 }
 
-.card .btn {
-  display: inline-block;
-  margin: 15px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.card .btn:hover {
-  background-color: #0056b3;
-}
-
 /* Animation for rolling effect */
-@keyframes rollInFromLeft {
+@keyframes scaleInFromCenter {
   0% {
     opacity: 0;
-    transform: translateX(-50px) rotate(-20deg);
+    transform: scale(0.8); /* Start scaled down */
   }
   50% {
     opacity: 0.7;
-    transform: translateX(10px) rotate(10deg);
+    transform: scale(1.05); /* Slightly zoom in */
   }
   100% {
     opacity: 1;
-    transform: translateX(0) rotate(0deg);
+    transform: scale(1); /* Final size */
   }
+}
+
+.cards {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  animation: scaleInFromCenter 0.8s ease-out forwards; /* Apply new animation */
+  overflow: hidden;
+}
+
+.cards:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.cards:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.cards:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.cards:nth-child(4) {
+  animation-delay: 0.6s;
 }

@@ -1,21 +1,30 @@
+/* Center the cards container */
+.cards-containers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Ensures cards wrap on smaller screens */
+  gap: 20px; /* Space between cards */
+  margin-top: 50px; /* Adjust spacing from the top */
+}
 .card {
     border: 1px solid #ddd;
     border-radius: 15px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
  height: 100%;  
+
+
 }
 
 body[data-theme='dark'] {
-    background: linear-gradient(135deg, #1e1e2f, #2e2e4d); /* Dark gradient background */
+    background: #333; /* Dark gradient background */
     color: #e0e0e0; /* Text color */
 }
 
 /* Glassy Cards */
 body[data-theme='dark'] .card {
-    
-  
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 3px solid rgba(6, 63, 176, 0.3);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow */
     color: #ffffff;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -24,15 +33,50 @@ body[data-theme='dark'] .card {
 body[data-theme='dark'] .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
-    border-color: #ffdf70; /* Highlight border */
 }
-
 body[data-theme='dark'] .card-title {
-    color: #ffdf70; /* Bright, glowing title color */
+  color: rgba(0, 98, 164, 0.8); /* Bright, glowing title color */
+  text-shadow: 0 1px 3px rgba(0, 98, 164, 0.8); /* Subtle glow */
+  margin-left: 0;
+}
+body[data-theme='dark'] .card-text {
+  color: rgba(0, 0, 0, 0.8); /* Light text for better visibility in dark mode */
 }
 
-body[data-theme='dark'] .card-text {
-    color: #0a0909;
+body[data-theme='dark'] .card-title:hover,
+body[data-theme='dark'] .card-text:hover {
+  text-decoration: underline; /* Underline for hover interactivity */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8); /* Subtle shadow on hover */
+}
+
+.card-title{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #343a40; /* Richer color for light mode */
+  padding: 15px;
+  margin-left: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+.form-container {
+  border: 3px solid transparent;
+  padding: 20px;
+  animation: spin-border 5s linear infinite; /* Slower border animation */
+  border-image: linear-gradient(135deg, #7c4dff, #00bfae) 1; /* Smooth gradient */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  border-color: #007bff; /* Blue border on hover */
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 /* Glassy Form */
@@ -40,7 +84,7 @@ body[data-theme='dark'] .form-container {
     background: rgba(255, 255, 255, 0.1); /* Transparent background */
     backdrop-filter: blur(20px) saturate(200%);
     -webkit-backdrop-filter: blur(20px) saturate(200%);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 5px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow */
     padding: 20px;
     color: #ffffff;
@@ -57,7 +101,6 @@ body[data-theme='dark'] .form-container button {
     color: #ffffff;
     padding: 10px;
  
-    margin-bottom: 15px;
     width: 100%;
 }
 
@@ -74,15 +117,13 @@ body[data-theme='dark'] .form-container button:hover {
 }
 
 /* Remove this highlight in production */
-
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     border-color: #007bff;
 }
-
 .card-img-top {
-    height: 250px;
+    height: 180px;
     object-fit: cover;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -93,8 +134,8 @@ body[data-theme='dark'] .form-container button:hover {
     font-weight: bold;
     color: black;
     padding: 15px;
+    margin-left: 16px;
 }
-
 
 .profile-title {
     font-size: 2rem;
@@ -103,7 +144,6 @@ body[data-theme='dark'] .form-container button:hover {
     margin-bottom: 20px; /* Space between title and form */
     text-align: center; /* Center the title */
   }
-  
 
 
   @keyframes spin-border {
@@ -120,7 +160,8 @@ body[data-theme='dark'] .form-container button:hover {
   
   /* Default (Light Mode) */
   .form-container {
-    border: 3px solid transparent;
+    border: 5px solid transparent;
+   
     padding: 20px;
     animation: spin-border 3s linear infinite; /* Apply spinning border animation */
     border-image: linear-gradient(135deg, #7c4dff, #00bfae) 1; /* Initial gradient */

@@ -19,19 +19,19 @@ function Navbar() {
     switch (language) {
       case 'fr':
         return {
-          hello: 'Hello FS203',
-          developer: 'Je suis un développeur Full Stack',
+          hello: 'Bienvenue sur mon projet React',
+          developer: 'Je suis un etudiant Full Stack',
           specialization: 'Spécialisé dans le développement frontend et backend, créant des applications dynamiques et conviviales.',
         };
       case 'es':
         return {
-          hello: 'Hola FS203',
+          hello: 'Bienvenido a mi proyecto React',
           developer: 'Soy un desarrollador Full Stack',
           specialization: 'Especializado en desarrollo frontend y backend, creando aplicaciones dinámicas y fáciles de usar.',
         };
       default:
         return {
-          hello: 'Hello FS203',
+          hello: 'Welcome To my React Project',
           developer: 'I am a Full Stack Developer Student',
           specialization: 'Specializing in both frontend and backend development, creating dynamic, user-friendly applications.',
         };
@@ -117,29 +117,28 @@ function Navbar() {
       {/* Cards Section */}
       {isHomePage && (
         <div className="cards-container">
-          <div className="card">
+          <div className="cards">
           <Link to="/TodoApp">  <img src="todp.png" alt="ToDo List" className="card-img" /></Link>
             <h3>ToDo List</h3>
             <p>Manage your tasks effectively with our ToDo List app.</p>
            
           </div>
-          <div className="card">
+          <div className="cards">
           <Link to="/calculator"><img src="calc.png" alt="Calculator" className="card-img" /></Link>
           
             <h3>Calculator</h3>
             <p>Perform calculations easily with our smart calculator.</p>
           
           </div>
-          <div className="card">
+          <div className="cards">
           <Link to="/api">  <img src="api.png" alt="API" className="card-img" /></Link>
           
             <h3>API Data</h3>
             <p>Explore APIs and fetch dynamic data effortlessly.</p>
-           
           </div>
-          <div className="card">
-          <Link to="/cart" ><img src="profile.jpg" alt="Profile" className="card-img" /></Link>
-            <h3>Profile</h3>
+          <div className="cards">
+          <Link to="/cart" ><img src="card.png" alt="Profile" className="card-img" /></Link>
+            <h3 >Profile</h3>
             <p>View and manage user profiles with our card feature.</p>
           </div>
         </div>

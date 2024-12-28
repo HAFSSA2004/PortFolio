@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #ff6b6b, #f7b7a3);
+
     overflow: hidden;
     position: relative;
     font-family: 'Arial', sans-serif;
@@ -50,7 +50,7 @@
   
   .error-message {
     font-size: 20px;
-    color: white;
+    color: black;
     margin-top: 10px;
     font-weight: 300;
     padding-top: 100px;
