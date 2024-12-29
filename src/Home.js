@@ -118,23 +118,23 @@ function Navbar() {
       {isHomePage && (
         <div className="cards-container">
           <div className="cards">
-          <Link to="/TodoApp">  <img src="todp.png" alt="ToDo List" className="card-img" /></Link>
+          <Link to="/TodoApp">  <img src="tod.png" alt="ToDo List" className="card-img" /></Link>
             <h3>ToDo List</h3>
             <p>Manage your tasks effectively with our ToDo List app.</p>
           </div>
           <div className="cards">
-          <Link to="/calculator"><img src="calc.png" alt="Calculator" className="card-img" /></Link>
+          <Link to="/calculator"><img src="c.png" alt="Calculator" className="card-img" /></Link>
             <h3>Calculator</h3>
             <p>Perform calculations easily with our smart calculator.</p>
           </div>
          
           <div className="cards">
-          <Link to="/cart" ><img src="card.png" alt="Profile" className="card-img" /></Link>
+          <Link to="/cart" ><img src="pr.png" alt="Profile" className="card-img" /></Link>
             <h3 >Profile</h3>
             <p>View and manage user profiles with our card feature.</p>
           </div>
           <div className="cards" >
-          <Link to="/api">  <img src="a.png" alt="API" className="card-img" /></Link>
+          <Link to="/api">  <img src="f.png" alt="API" className="card-img" /></Link>
             <h3>API Flags</h3>
             <p>Discover world flags easily with our API Flags service.</p>
           </div>

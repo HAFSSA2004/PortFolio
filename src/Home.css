@@ -1,382 +1,501 @@
-html, body {
-  height: 100%; /* Ensure the body takes full height */
-  margin: 0; /* Remove default margin */
-}
-.background {
-  position: relative;
-  min-height: 100vh; /* Allow the background to grow with content */
-  overflow: auto; /* Allow scrolling if content exceeds viewport */
-}
-.background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1; /* Keep it behind other content */
-}
-/* Navbar styling */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  background-color: black;
-  top: 0;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(255, 235, 235, 0.3);
-  padding: 25px 10px;
-  width: 100%;
-  z-index: 1000;
-}
-/* Logo styling */
-.navbar-brand {
-  font-family: 'Roboto', sans-serif;
-  font-size: 36px;
-  color: #fff;
-  letter-spacing: 3px;
-  font-weight: 700;
-}
-/* Navbar links container */
-.navbar-links {
-  display: flex;
-  gap: 25px;
-}
-/* Individual link styling */
-.nav-link{
-  text-decoration: none;
-  font-size: 20px;
-  color: pink;
-  font-weight: bold;
-  padding: 10px 20px;
-  transition: color 0.3s ease, transform 0.3s ease;
-  letter-spacing: 1px;
-  border-radius: 5px;
-}
-.nav-link:hover {
-  color: #feb47b;
-  transform: scale(1.1);
-}
-
-/* Media Query for Smaller Screens */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
+  html, body {
+    height: 100%; /* Ensure the body takes full height */
+    margin: 0; /* Remove default margin */
   }
-
-  .navbar-logo h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+  .background {
+    position: relative;
+    min-height: 100vh; /* Allow the background to grow with content */
+    overflow: auto; /* Allow scrolling if content exceeds viewport */
   }
-
-  .navbar-links {
-    flex-direction: column;
-    gap: 15px;
-  }
-}
-
-.language-toggle{
-  display: flex;
-  justify-content: end;
-  margin-top:60px;
-  margin-left: 100px;
-}
-.language-toggle img {
-  border-radius: 50%;
- 
-}
-
-.language-toggle button {
-  padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  margin-bottom: 100px;
-  
-  transition: background-color 0.3s ease;
-}
-
-.language-toggle button:hover {
-  background-color: #ddd;
-}
-
-/* General Styles */
-.info-container {
-  text-align: left; /* Align text to the left */
-  padding: 50px 20px;
-  position: relative; /* Position relative for stacking context */
-  overflow: hidden; /* Hide overflow for animation */
-}
-
-/* Text Styles */
-.hello-text, .developer-text, .specialization-text {
-  opacity: 0;
-  animation: scratchIn 1.5s ease forwards; /* Scratch-in effect */
-  margin: 0; /* Reset margins */
-  padding: 10px 0; /* Add vertical padding for spacing */
-  color: #ffffff; /* White text for better contrast */
-  position: relative; /* Position relative for stacking context */
-  z-index: 2; /* Place above any potential background */
-}
-
-/* Staggered Animation for Text */
-.hello-text {
-  animation-delay: 0.5s; /* Delay for staggered effect */
-  font-size: 2rem; /* Larger font size */
-  font-weight: bold; /* Bold text */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
-  margin-top: -70px; /* Move up slightly */
-}
-
-.developer-text {
-  animation-delay: 1s; /* Delay for staggered effect */
-  font-size: 1.5rem; /* Medium font size */
-  font-style: italic; /* Italic text */
-  color: #feb47b; /* Different color for contrast */
-  margin-top: -10px; /* Move up slightly, but with some spacing */
-}
-
-.specialization-text {
-  animation-delay: 1.5s; /* Delay for staggered effect */
-  font-size: 1.2rem; /* Smaller font size */
-  font-weight: 300; /* Light text */
-  color: #ffffff; /* Keep white for consistency */
-  margin-top: -15px; /* Slight overlap prevention */
-}
-
-/* Scratch-in Animation */
-@keyframes scratchIn {
-  0% {
-    opacity: 0;
-    transform: translateX(-100%) translateY(20px); /* Start off-screen to the left and slightly down */
-  }
-  50% {
-    opacity: 1;
-    transform: translateX(10%) translateY(5px); /* Slide from left to near-center */
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0) translateY(0); /* Final position */
-  }
-}
-
-/* Language Toggle Button */
-.language-toggle img {
-  cursor: pointer;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  width: 50px; /* Fixed size for consistency */
-  height: auto; /* Maintain aspect ratio */
-}
-
-.language-toggle img:hover {
-  transform: scale(1.1) rotate(5deg); /* Scale and slight rotate on hover */
-  opacity: 1; /* Keep opacity at full */
-}
-
-/* Responsive Styling */
-@media (max-width: 768px) {
-  .info-container {
-    padding: 30px 10px;
-  }
-  
-  .hello-text, .developer-text, .specialization-text {
-    font-size: 18px; /* Adjust font size for smaller screens */
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Media Query for Smaller Screens */
-@media (max-width: 768px) {
-  .navbar {
-    position: relative; /* Ensure the navbar is positioned correctly */
-    padding: 20px;
-  }
-
-  /* Position navbar toggler and language toggle in the same line */
-  .navbar-toggler-icon {
+  .background-image {
     position: absolute;
-    top: 13px;
-    right: 10px;
-    z-index: 1001;
-    background-color: rgb(248, 249, 250);
-
-    border-radius: 5px;
-    padding: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Keep it behind other content */
   }
-
-  .theme-switch {
-    position: absolute;
-    top: 15px;  /* Adjust vertical position */
-    right: 80px; /* Place it to the left of the navbar toggler */
-    z-index: 10001;
+  /* Navbar styling */
+  .navbar {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    position: sticky;
+    background-color: black;
+    top: 0;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(255, 235, 235, 0.3);
+    padding: 25px 10px;
+    width: 100%;
+    z-index: 1000;
   }
-
-  /* Adjust theme switch image size */
-  .theme-switch img {
-    width: 40px;
-    height: auto;
+  /* Logo styling */
+  .navbar-brand {
+    font-family: 'Roboto', sans-serif;
+    font-size: 36px;
+    color: #fff;
+    letter-spacing: 3px;
+    font-weight: 700;
   }
-
-  /* Adjust the language toggle image to be next to the theme switch */
-  .language-toggle {
-    position: absolute;
-    padding-left: 339px;
-    top: 30px;
-     /* Adjust to position to the left of the theme switch */
-    z-index: 999;
+  /* Navbar links container */
+  .navbar-links {
     display: flex;
-    align-items: end;
-    justify-content: end;
-    cursor: pointer;
-    
+    gap: 25px;
+  }
+  /* Individual link styling */
+  .nav-link{
+    text-decoration: none;
+    font-size: 20px;
+    color: pink;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    letter-spacing: 1px;
+    border-radius: 5px;
+  }
+  .nav-link:hover {
+    color: #feb47b;
+    transform: scale(1.1);
   }
 
+  /* Media Query for Smaller Screens */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+    }
+
+    .navbar-logo h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .navbar-links {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+
+  .language-toggle{
+    display: flex;
+    justify-content: end;
+    margin-top:60px;
+    margin-left: 100px;
+    margin-bottom: -45px;
+  }
   .language-toggle img {
-    width: 40px;
-    height: auto;
     border-radius: 50%;
-    transition: transform 0.3s ease;
+  
+  }
+
+  .language-toggle button {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    margin-bottom: 100px;
+    
+    transition: background-color 0.3s ease;
+  }
+
+  .language-toggle button:hover {
+    background-color: #ddd;
+  }
+
+  /* General Styles */
+  .info-container {
+    text-align: left; /* Align text to the left */
+    padding: 60px 20px;
+    position: relative; /* Position relative for stacking context */
+    overflow: hidden; /* Hide overflow for animation */
+   
+  }
+
+  /* Text Styles */
+  .hello-text, .developer-text, .specialization-text {
+    opacity: 0;
+    animation: scratchIn 1.5s ease forwards; /* Scratch-in effect */
+    margin: 0; /* Reset margins */
+    padding: 10px 0; /* Add vertical padding for spacing */
+    color: #ffffff; /* White text for better contrast */
+    position: relative; /* Position relative for stacking context */
+    z-index: 2; /* Place above any potential background */
+  }
+
+  /* Staggered Animation for Text */
+  .hello-text {
+    animation-delay: 0.5s; /* Delay for staggered effect */
+    font-size: 2rem; /* Larger font size */
+    font-weight: bold; /* Bold text */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+    margin-top: -70px; /* Move up slightly */
+  }
+
+  .developer-text {
+    animation-delay: 1s; /* Delay for staggered effect */
+    font-size: 1.5rem; /* Medium font size */
+    font-style: italic; /* Italic text */
+    color: #feb47b; /* Different color for contrast */
+    margin-top: -10px; /* Move up slightly, but with some spacing */
+  }
+
+  .specialization-text {
+    animation-delay: 1.5s; /* Delay for staggered effect */
+    font-size: 1.2rem; /* Smaller font size */
+    font-weight: 300; /* Light text */
+    color: #ffffff; /* Keep white for consistency */
+    margin-top: -15px; /* Slight overlap prevention */
+  }
+
+  /* Scratch-in Animation */
+  @keyframes scratchIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%) translateY(20px); /* Start off-screen to the left and slightly down */
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(10%) translateY(5px); /* Slide from left to near-center */
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) translateY(0); /* Final position */
+    }
+  }
+
+  /* Language Toggle Button */
+  .language-toggle img {
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    width: 50px; /* Fixed size for consistency */
+    height: auto; /* Maintain aspect ratio */
   }
 
   .language-toggle img:hover {
-    transform: scale(1.1);  /* Slight zoom effect */
-  }
-}
-.cards {
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  animation: scaleInFromCenter 0.8s ease-out forwards;
-  overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
-}
-
-.cards:hover {
-  transform: scale(1.05) rotate(2deg); /* Slight zoom and rotate effect */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow for hover */
-  background: rgba(255, 255, 255, 0.15); /* Slightly brighter background on hover */
-}
-
-/* Add the individual animations for each card with delay for staggered effects */
-.cards:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.cards:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.cards:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-.cards:nth-child(4) {
-  animation-delay: 0.6s;
-}
-
-.cards-container {
-  display: flex;
-  gap: 20px; /* Space between the cards */
-  padding: 20px;
-  justify-items: center; /* Center the cards horizontally */
-  align-items: center; /* Stretch cards to fill their grid container */
-  border-radius: 10px; /* Rounded corners for the container */
-  overflow: hidden; /* Prevent clipping of the cards */
-  margin: 0 auto; /* Center the container horizontally */
-}
-/* Add more nth-child selectors if you have more cards, increasing the delay */
-.card-img {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;  
-}
-.cards h3 {
-  font-size: 1.5rem;
-  margin: 10px 15px;
-  color: #fff7f7;
-}
-.cards p {
-  font-size: 1rem;
-  color: #fff7f7;
-  margin: 10px 15px;
-}
-
-/* Animation for rolling effect */
-@keyframes scaleInFromCenter {
-  0% {
-    opacity: 0;
-    transform: scale(0.8); /* Start scaled down */
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.05); /* Slightly zoom in */
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1); /* Final size */
-  }
-}
-
-.cards{
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  animation: scaleInFromCenter 0.8s ease-out forwards; /* Apply new animation */
-  overflow: hidden;
-}
-
-.cards:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.cards:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.cards:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-.cards:nth-child(4) {
-  animation-delay: 0.6s;
-}
-
-
-@media (max-width: 460px) {
-  .cards-container {
-    flex-direction: column; /* Stack cards vertically */
-    align-items: center; /* Center the cards */
+    transform: scale(1.1) rotate(5deg); /* Scale and slight rotate on hover */
+    opacity: 1; /* Keep opacity at full */
   }
 
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .info-container {
+      padding: 30px 10px;
+    }
+    
+    .hello-text, .developer-text, .specialization-text {
+      font-size: 18px; /* Adjust font size for smaller screens */
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Media Query for Smaller Screens */
+  @media (max-width: 768px) {
+    .navbar {
+      position: relative; /* Ensure the navbar is positioned correctly */
+      padding: 20px;
+    }
+
+    /* Position navbar toggler and language toggle in the same line */
+    .navbar-toggler-icon {
+      position: absolute;
+      top: 13px;
+      right: 10px;
+      z-index: 1001;
+      background-color: rgb(248, 249, 250);
+
+      border-radius: 5px;
+      padding: 20px;
+    }
+
+    .theme-switch {
+      position: absolute;
+      top: 15px;  /* Adjust vertical position */
+      right: 80px; /* Place it to the left of the navbar toggler */
+      z-index: 10001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    /* Adjust theme switch image size */
+    .theme-switch img {
+      width: 40px;
+      height: auto;
+    }
+
+    /* Adjust the language toggle image to be next to the theme switch */
+    .language-toggle {
+      position: absolute;
+      padding-left: 339px;
+      top: 30px;
+      /* Adjust to position to the left of the theme switch */
+      z-index: 999;
+      display: flex;
+      align-items: end;
+      justify-content: end;
+      cursor: pointer;
+      
+    }
+
+    .language-toggle img {
+      width: 40px;
+      height: auto;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    .language-toggle img:hover {
+      transform: scale(1.1);  /* Slight zoom effect */
+    }
+  }
   .cards {
-    width: 100%; /* Make cards take up most of the width on smaller screens */
-    margin-bottom: 20px; /* Add space between stacked cards */
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    animation: scaleInFromCenter 0.8s ease-out forwards;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
   }
 
+  .cards:hover {
+    transform: scale(1.05) rotate(2deg); /* Slight zoom and rotate effect */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow for hover */
+    background: rgba(255, 255, 255, 0.15); /* Slightly brighter background on hover */
+  }
+
+  /* Add the individual animations for each card with delay for staggered effects */
+  .cards:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .cards:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .cards:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  .cards:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+
+  .cards-container {
+    display: flex;
+    gap: 20px; /* Space between the cards */
+    padding: 20px;
+    justify-items: center; /* Center the cards horizontally */
+    align-items: center; /* Stretch cards to fill their grid container */
+    border-radius: 10px; /* Rounded corners for the container */
+    overflow: hidden; /* Prevent clipping of the cards */
+    margin: 0 auto; /* Center the container horizontally */
+  }
+  /* Add more nth-child selectors if you have more cards, increasing the delay */
+  .card-img {
+    width: 100%;
+    height: 200px;
+    background-size: cover; /* Ensures the image covers the container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    object-fit: cover;  
+  }
+  .cards h3 {
+    font-size: 1.5rem;
+    margin: 10px 15px;
+    color: #fff7f7;
+  }
+  .cards p {
+    font-size: 1rem;
+    color: #fff7f7;
+    margin: 10px 15px;
+  }
+
+  /* Animation for rolling effect */
+  @keyframes scaleInFromCenter {
+    0% {
+      opacity: 0;
+      transform: scale(0.8); /* Start scaled down */
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.05); /* Slightly zoom in */
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1); /* Final size */
+    }
+  }
+
+  .cards{
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    animation: scaleInFromCenter 0.8s ease-out forwards; /* Apply new animation */
+    overflow: hidden;
+  }
+
+  .cards:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .cards:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .cards:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  .cards:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+
+
+  @media (max-width: 460px) {
+    .cards-container {
+      flex-direction: column; /* Stack cards vertically */
+      align-items: center; /* Center the cards */
+    }
+
+    .cards {
+      width: 100%; /* Make cards take up most of the width on smaller screens */
+      margin-bottom: 20px; /* Add space between stacked cards */
+    }
+
+    
+  }
+
+
+
+  @media (max-width: 780px) {
+    .cards-container {
+      flex-direction: column; /* Stack cards vertically */
+      align-items: center; /* Center the cards */
+    }
+
+    .cards {
+      width: 100%; /* Make cards take up most of the width on smaller screens */
+      margin-bottom: 20px; /* Add space between stacked cards */
+    }
+
+    
+  }
+  @media (max-width: 768px) {
+    .language-toggle {
+      top: 50px; /* Adjust position for smaller screens */
+      right: 20px; /* Add some padding from the edge */
+    }
   
-}
+    .language-toggle img {
+      width: 30px; /* Further reduce size for smaller screens */
+    }
+  }
+
+  /* Keyframes for Dynamic 3D Pop-in Effect */
+  @keyframes popIn {
+    0% {
+      transform: perspective(1000px) rotateX(40deg) rotateY(-40deg) scale(0.5);
+      opacity: 0;
+      filter: blur(10px);
+    }
+    50% {
+      transform: perspective(1000px) rotateX(-10deg) rotateY(10deg) scale(1.1);
+      opacity: 0.8;
+      filter: blur(2px);
+    }
+    100% {
+      transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1);
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+  /* Keyframes for Hover Glow and Depth */
+  @keyframes hoverGlow {
+    0% {
+      box-shadow: 0 0 15px rgba(0, 255, 204, 0.6), 
+                  0 0 30px rgba(0, 255, 204, 0.4), 
+                  0 0 45px rgba(0, 255, 204, 0.3);
+      transform: translateY(0px);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(0, 255, 204, 0.8), 
+                  0 0 50px rgba(0, 255, 204, 0.6), 
+                  0 0 75px rgba(0, 255, 204, 0.5);
+      transform: translateY(-10px); /* Add a subtle floating effect */
+    }
+    100% {
+      box-shadow: 0 0 15px rgba(0, 255, 204, 0.6), 
+                  0 0 30px rgba(0, 255, 204, 0.4), 
+                  0 0 45px rgba(0, 255, 204, 0.3);
+      transform: translateY(0px);
+    }
+  }
+
+  /* Styling for the Cards */
+  .cards {
+    display: inline-block;
+    width: 300px;
+    height: 350px;
+    background: linear-gradient(135deg, rgba(0, 255, 204, 0.3), rgba(0, 0, 0, 0.7));
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    perspective: 1000px; /* Enable 3D effect */
+    animation: popIn 1s ease-out;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Hover Effect */
+  .cards:hover {
+    animation: hoverGlow 2s infinite ease-in-out;
+    transform: scale(1.05) rotateX(5deg) rotateY(-5deg);
+  }
+
+  /* Inner Glow Effect */
+  .cards::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 255, 204, 0.3), transparent);
+    opacity: 0.5;
+    pointer-events: none;
+    transform: scale(1.5);
+    animation: glowingEffect 3s infinite alternate;
+  }
+
+  @keyframes glowingEffect {
+    0% {
+      transform: scale(1.5);
+      opacity: 0.4;
+    }
+    100% {
+      transform: scale(1.8);
+      opacity: 0.6;
+    }
+  }
