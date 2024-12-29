@@ -83,7 +83,7 @@
     justify-content: end;
     margin-top:60px;
     margin-left: 100px;
-    margin-bottom: -45px;
+     margin-bottom: -20px;
   }
   .language-toggle img {
     border-radius: 50%;
@@ -403,8 +403,8 @@
   }
   @media (max-width: 768px) {
     .language-toggle {
-      top: 50px; /* Adjust position for smaller screens */
-      right: 20px; /* Add some padding from the edge */
+      top: 48px; /* Adjust position for smaller screens */
+      right: 10px; /* Add some padding from the edge */
     }
   
     .language-toggle img {
