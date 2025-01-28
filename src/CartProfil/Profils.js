@@ -23,7 +23,7 @@ function Profils() {
    <div>
     <Navbar/>
      <div className="container mt-5">
-      <FormulaireProfile AjouterP={AjouterP} />
+     <FormulaireProfile AjouterP={AjouterP} />
       <ListeProfils profils={profils} suprimerP={suprimerP} />
     </div>
    </div>

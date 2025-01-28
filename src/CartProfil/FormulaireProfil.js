@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './style.css';
 
-export default function ProfileForm({ addProfile }) {
-  const [name, setName] = useState('');
+export default function ProfileForm({ AjouterP }) {  // Change 'addProfile' to 'AjouterP'
+  const [nom ,setNom] = useState('');
   const [age, setAge] = useState('');
   const [profession, setProfession] = useState('');
   const [image, setImage] = useState(null);
@@ -15,10 +15,9 @@ export default function ProfileForm({ addProfile }) {
       return;
     }
 
-    const newProfile = { name, age, profession, image: URL.createObjectURL(image) };
-    addProfile(newProfile);
-
-    setName('');
+    const newProfile = { nom, age, profession, image: URL.createObjectURL(image) };
+    AjouterP(newProfile);  // Use 'AjouterP' instead of 'addProfile'
+    setNom('');
     setAge('');
     setProfession('');
     setImage(null);
@@ -33,16 +32,16 @@ export default function ProfileForm({ addProfile }) {
 
   return (
     <div className="d-flex flex-column justify-content-center align-items-center" style={{ height: '80vh' }}>
-      <h1 className="profile-title text-center">List Profils</h1> {/* Title Added */}
+      <h1 className="profile-title text-center">List Profils</h1>
       
-      <form onSubmit={handleSubmit} className="form-container p-4 bg-white  shadow-lg" style={{ width: '100%', maxWidth: '500px' }}>
+      <form onSubmit={handleSubmit} className="form-container p-4 bg-white shadow-lg" style={{ width: '100%', maxWidth: '500px' }}>
         <div className="mb-3">
           <label className="form-label">Name:</label>
           <input
             type="text"
             className="form-control"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
+            onChange={(e) => setNom(e.target.value)}
+            value={nom}
             placeholder="Enter the name"
           />
         </div>

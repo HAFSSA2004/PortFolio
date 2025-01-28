@@ -13,7 +13,7 @@ export default function ListeProfils({ profils, suprimerP }) {
               className="card-img-top"
             />
             <div className="card-body">
-              <h5 className="card-title ps-0 ms-0">{profil.nom}</h5>
+              <h5 className=" ps-0 ms-0 text-dark">{profil.nom}</h5>
               <p className="card-text mb-1">
                 Age: <span className="text-secondary">{profil.age}</span>
               </p>
