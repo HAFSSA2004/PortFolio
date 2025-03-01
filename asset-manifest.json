@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "https://reacttp-1fa0d1.gitlab.io/static/css/main.79a0781b.css",
+    "main.js": "https://reacttp-1fa0d1.gitlab.io/static/js/main.d49d30e6.js",
+    "static/js/453.2a82e7ac.chunk.js": "https://reacttp-1fa0d1.gitlab.io/static/js/453.2a82e7ac.chunk.js",
+    "index.html": "https://reacttp-1fa0d1.gitlab.io/index.html",
+    "main.79a0781b.css.map": "https://reacttp-1fa0d1.gitlab.io/static/css/main.79a0781b.css.map",
+    "main.d49d30e6.js.map": "https://reacttp-1fa0d1.gitlab.io/static/js/main.d49d30e6.js.map",
+    "453.2a82e7ac.chunk.js.map": "https://reacttp-1fa0d1.gitlab.io/static/js/453.2a82e7ac.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.79a0781b.css",
+    "static/js/main.d49d30e6.js"
+  ]
+}
