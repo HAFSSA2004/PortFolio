@@ -59,7 +59,7 @@ function TodoApp() {
       <header>
        
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-          <img src="task2.png" alt="Task Logo" />
+          <img src="/task2.png" alt="Task Logo" />
           <input
             type="text"
             placeholder="Search tasks..."

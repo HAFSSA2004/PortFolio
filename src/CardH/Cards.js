@@ -13,28 +13,28 @@ export default function Cards() {
   const cardData = [
     {
       link: "/TodoApp",
-      imgSrc: "todp.png",
+      imgSrc: "./todp.png",
       alt: "ToDo List App",
       title: "ToDo List",
       description: "Manage your tasks effectively with our ToDo List app.",
     },
     {
       link: "/calculator",
-      imgSrc: "calc.png",
+      imgSrc: "./calc.png",
       alt: "Smart Calculator",
       title: "Calculator",
       description: "Perform calculations easily with our smart calculator.",
     },
     {
       link: "/api",
-      imgSrc: "api.png",
+      imgSrc: "./api.png",
       alt: "API Data Exploration",
       title: "API Data",
       description: "Explore APIs and fetch dynamic data effortlessly.",
     },
     {
       link: "/cart",
-      imgSrc: "profile.jpg",
+      imgSrc: "./profile.jpg",
       alt: "User Profile Management",
       title: "Profile",
       description: "View and manage user profiles with our card feature.",
