@@ -1,54 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Home.css';
-import Test from './Test/Test';
-import { useLanguage } from './LanguageContext';
+//import Test from './Test/Test';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Navbar() {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
   const [showLinks, setShowLinks] = useState(false);
-  const { language, toggleLanguage } = useLanguage();
 
   useEffect(() => {
     setShowLinks(false);
   }, [location.pathname]);
-
-  const getLanguageText = () => {
-    switch (language) {
-      case 'fr':
-        return {
-          hello: 'Bienvenue sur mon projet React',
-          developer: 'Je suis un etudiant Full Stack',
-          specialization: 'Spécialisé dans le développement frontend et backend, créant des applications dynamiques et conviviales.',
-        };
-      case 'es':
-        return {
-          hello: 'Bienvenido a mi proyecto React',
-          developer: 'Soy un desarrollador Full Stack',
-          specialization: 'Especializado en desarrollo frontend y backend, creando aplicaciones dinámicas y fáciles de usar.',
-        };
-      default:
-        return {
-          hello: 'Welcome To my React Project',
-          developer: 'I am a Full Stack Developer Student',
-          specialization: 'Specializing in both frontend and backend development, creating dynamic, user-friendly applications.',
-        };
-    }
-  };
-
-  const { hello, developer, specialization } = getLanguageText();
-
-  const handleLanguageToggle = () => {
-    if (language === 'en') {
-      toggleLanguage('fr');
-    } else if (language === 'fr') {
-      toggleLanguage('es');
-    } else {
-      toggleLanguage('en');
-    }
-  };
 
   return (
     <div className={isHomePage ? 'background' : ''}>
@@ -56,7 +19,7 @@ function Navbar() {
 
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
-          <Link to="/" className="navbar-brand text-light">My Project</Link>
+          <Link to="/" className="navbar-brand text-light">Portfolio</Link>
           <button 
             className="navbar-toggler" 
             type="button" 
@@ -70,75 +33,82 @@ function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div className={`collapse navbar-collapse ${showLinks ? 'show' : ''}`} id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link to="/" className="nav-link text-light">Home</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/TodoApp" className="nav-link text-light">ToDo List</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/calculator" className="nav-link text-light">Calculator</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/api" className="nav-link text-light">Api</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/cart" className="nav-link text-light">Card Profil</Link>
-              </li>
-            </ul>
-          </div>
+         <div className={`collapse navbar-collapse ${showLinks ? 'show' : ''}`} id="navbarNav">
+  <ul className="navbar-nav">
+    <li className="nav-item">
+      <Link to="/" className="nav-link text-light"></Link>
+    </li>
+   
+  </ul>
+</div>
+
 
           <div className="theme-switch">
-            <Test />
+       
           </div>
         </div>
       </nav>
 
       {isHomePage && (
-        <div className="language-toggle" onClick={handleLanguageToggle} style={{ cursor: 'pointer' }}>
-          <img
-            src={language === 'fr' ? 'france.png' : language === 'es' ? 'spain.png' : 'eng.png'}
-            alt="Language Toggle"
-            style={{ width: '50px', height: 'auto' }}
-          />
-        </div>
-      )}
+  <div className="info-container">
+    <h2 className="hello-text info-text mt-1">Bienvenue sur mon portfolio</h2>
+    <h2 className="developer-text info-text">Hafssa El Bouhli – Développeuse Full Stack</h2>
+    <p className="specialization-text info-text">
+      Je crée des applications web modernes et dynamiques, mettant en valeur mes compétences en React.js, Node.js, Laravel, MySQL, Tailwind CSS et WordPress. Découvrez mes projets et mon savoir-faire technique à travers ce portfolio.
+    </p>
+  </div>
+)}
 
-      {isHomePage && (
-        <div className="info-container">
-          <h2 className="hello-text info-text">{hello}</h2>
-          <h2 className="developer-text info-text">{developer}</h2>
-          <p className="specialization-text info-text">{specialization}</p>
-        </div>
-      )}
 
       {/* Cards Section */}
       {isHomePage && (
+        <>
         <div className="cards-container">
+            <div className="cards">
+            <a href="https://pfe-teal.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <img src="recru.png" alt="Plateforme de recrutement" className="card-img" />
+            </a>
+            <h3>Plateforme de recrutement</h3>
+            <p>Gestion des offres, candidatures et profils utilisateurs pour les recruteurs et candidats.</p>
+          </div>
+
           <div className="cards">
-          <Link to="/TodoApp">  <img src="tod.png" alt="ToDo List" className="card-img" /></Link>
+            <a href="https://annonce-ecru.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <img src="an.png" alt="Plateforme d'annonces" className="card-img" />
+            </a>
+            <h3>Plateforme d'annonces</h3>
+            <p>Publication, gestion et exploration d’annonces via une interface moderne.</p>
+          </div>
+           <div className="cards">
+  <a href="http://127.0.0.1:8000/" target="_blank" rel="noopener noreferrer">
+    <img src="j.png" alt="Jewelry Store" className="card-img" />
+  </a>
+  <h3>Jewelry Store</h3>
+  <p>Site e-commerce développé avec Laravel, incluant gestion du catalogue, panier et navigation sécurisée.</p>
+</div>
+        <div className="cards">
+            <Link to="/TodoApp">
+              <img src="tod.png" alt="ToDo List" className="card-img" />
+            </Link>
             <h3>ToDo List</h3>
-            <p>Manage your tasks effectively with our ToDo List app.</p>
+            <p>Application web pour gérer efficacement vos tâches quotidiennes.</p>
           </div>
+
+ </div>
+<div className='cards-container'>
+   
+
           <div className="cards">
-          <Link to="/calculator"><img src="c.png" alt="Calculator" className="card-img" /></Link>
-            <h3>Calculator</h3>
-            <p>Perform calculations easily with our smart calculator.</p>
-          </div>
-         
-          <div className="cards">
-          <Link to="/cart" ><img src="pr.png" alt="Profile" className="card-img" /></Link>
-            <h3 >Profile</h3>
-            <p>View and manage user profiles with our card feature.</p>
-          </div>
-          <div className="cards" >
-          <Link to="/api">  <img src="f.png" alt="API" className="card-img" /></Link>
-            <h3>API Flags</h3>
-            <p>Discover world flags easily with our API Flags service.</p>
-          </div>
-        </div>
+  <a href="https://game-fe5161.gitlab.io" target="_blank" rel="noopener noreferrer">
+    <img src="ro.png" alt="Rock Paper Scissors Game" className="card-img" />
+  </a>
+  <h3>Rock Paper Scissors Game</h3>
+  <p>Interactive web game to play Rock-Paper-Scissors against the computer.</p>
+</div>
+</div>
+        
+       
+        </>
       )}
     </div>
   );
